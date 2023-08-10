@@ -1,12 +1,25 @@
 # Google Pixel Tablet
 
 
+## Wall Mount
+
+![](pictures/version1.png)
+
+
+### Parts
+7x M3x12mm countersunk. \
+7x M3 nuts (<3mm thick). \
+16x 12x5x3 cube magnets. \
+3x M4 countersunk self-drilling screw.
+
+
+
 ## Base stand
 ### Disassembly
 
 1) Rubber feet (E12) is held on with double sided adhesive. A gentle pull releases it.
 
-![Drag Racing](pictures/dissasembly/20230729_000832.jpg)
+![](pictures/dissasembly/20230729_000832.jpg)
 
 
 2) Metal bracket (EW M2-1) is fastened with five Torx T7H screws (color coded magenta).
