@@ -27,8 +27,8 @@ jobs:
         with:
           dir: .
           config: .kibot/full-outputs.kibot.yaml
-          schema: electronics/driver-board.kicad_sch
-          board: electronics/driver-board.kicad_pcb
+          schema: electronics/electronics.kicad_sch
+          board: electronics/electronics.kicad_pcb
           install3D: yes
 
       - name: Fix file permissions for generated files
@@ -51,27 +51,27 @@ jobs:
       - name: Archive project artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: driver-board-${{ steps.gitstamp.outputs.datehash }}
+          name: electronics-${{ steps.gitstamp.outputs.datehash }}
           if-no-files-found: error
           path: |
 
             # Documentations
-            exports/driver-board-schematic-*.pdf
-            exports/driver-board-pcb-layers-*.pdf
-            exports/driver-board-pcb-layers-*.pdf
-            exports/driver-board-design-report-*.txt
+            exports/electronics-schematic-*.pdf
+            exports/electronics-pcb-layers-*.pdf
+            exports/electronics-pcb-layers-*.pdf
+            exports/electronics-design-report-*.txt
 
             exports/datasheets
-            exports/driver-board-ibom-*.html
-            exports/driver-board-*.csv
-            exports/driver-board-*.xlsx
+            exports/electronics-ibom-*.html
+            exports/electronics-*.csv
+            exports/electronics-*.xlsx
 
             # Production files
-            exports/driver-board-gerbers-*.zip
-            exports/driver-board-bom-*.csv
+            exports/electronics-gerbers-*.zip
+            exports/electronics-bom-*.csv
 
             ## Extras
             exports/renders/*.png
             exports/renders/*.jpg
-            exports/driver-board-*.step
+            exports/electronics-*.step
             exports/project
