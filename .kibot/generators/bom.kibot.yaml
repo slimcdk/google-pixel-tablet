@@ -1,0 +1,76 @@
+kibot:
+  version: 1
+
+outputs:
+  - type: bom
+    dir: exports
+    name: BoM
+    options:
+      output: "%f-%i-%r.%x"
+
+  - type: bom
+    name: BoM with Prices
+    comment: "Bill of Materials with prices"
+    dir: exports
+    options:
+      output: "%f-%i-%r.%x"
+      use_alt: true
+      number: 1
+      group_fields: ["Part", "Value", "Voltage", "Tolerance"]
+      columns:
+        - References
+        - Part
+        - Value
+        - Voltage
+        - Tolerance
+        - Quantity Per PCB
+        - field: Manf
+          name: Manufacturer
+        - field: Manf#
+          name: Manufacturer P/N
+      xlsx:
+        kicost: true
+        specs: false
+        kicost_api_disable:
+          - KitSpace
+          - Digi-Key
+          # - TME
+          - Element14
+          - Mouser
+        specs_columns:
+          - field: _field_lcsc_part
+      group_fields_fallbacks: ["Part", "Value", "Voltage", "Tolerance"]
+      distributors:
+        # - Arrow
+        - DigiKey
+        # - Farnell
+        - LCSC
+        - Mouser
+        # - Newark
+        # - RS
+        # - TME
+
+  - type: ibom
+    name: Interactive BOM
+    dir: exports
+    options:
+      output: "%f-%i-%r.%x"
+
+  # - type: kicost
+  #   name: Costs
+  #   dir: exports
+  #   options:
+  #     output: "%f-%i-%r.%x"
+  #     number: 1
+
+  # - type: kibom
+  #   name: KiBOM
+  #   dir: exports/
+  #   options:
+  #     format: CSV
+  #     csv:
+  #       quote_all: false
+  #       separator: ','
+  #       hide_header: false
+  #       hide_pcb_info: false
+  #       hide_stats_info: false

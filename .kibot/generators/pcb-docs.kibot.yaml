@@ -1,0 +1,22 @@
+kibot:
+  version: 1
+
+outputs:
+  - type: pcb_print
+    name: PCB Print
+    dir: exports
+    options:
+      output: "%f-pcb-layers-%r.%x"
+      color_theme: _builtin_default
+      format: PDF
+      force_edge_cuts: true
+      pages:
+        - layers:
+            - layer: F.Cu
+              suffix: F_Cu
+              description: Top most layer
+        - layers:
+            - layer: B.Cu
+              suffix: B_Cu
+              description: Bottom most layer
+      plot_sheet_reference: true

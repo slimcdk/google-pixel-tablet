@@ -1,0 +1,120 @@
+kibot:
+  version: 1
+
+outputs:
+  - type: step
+    name: STEP model
+    dir: exports
+    options:
+      output: "%f-%r.%x"
+      metric_units: true
+
+  - type: render_3d
+    name: PCB 3D Render 1
+    dir: exports/renders
+    options:
+      output: "%f-render-1.%x"
+      height: 1000
+      width: 1600
+      zoom: 2
+      download: true
+      ray_tracing: true
+      view: top
+      transparent_background: true
+
+  - type: render_3d
+    name: PCB 3D Render 2
+    dir: exports/renders
+    options:
+      output: "%f-render-2.%x"
+      height: 1000
+      width: 1600
+      zoom: 2
+      download: true
+      ray_tracing: true
+      view: bottom
+      transparent_background: true
+
+  - type: render_3d
+    name: PCB 3D Render 3
+    dir: exports/renders
+    options:
+      output: "%f-render-3.%x"
+      height: 1000
+      width: 1600
+      zoom: 2
+      download: true
+      ray_tracing: true
+      view: front
+      rotate_x: -5
+      rotate_y: 0
+      rotate_z: 6
+      transparent_background: true
+
+  - type: render_3d
+    name: PCB 3D Render 4
+    dir: exports/renders
+    options:
+      output: "%f-render-4.%x"
+      height: 1000
+      width: 1600
+      zoom: 2
+      download: true
+      ray_tracing: true
+      view: front
+      rotate_x: -4
+      rotate_y: 0
+      rotate_z: -4
+      transparent_background: true
+
+  - type: render_3d
+    name: PCB 3D Render 5
+    dir: exports/renders
+    options:
+      output: "%f-render-5.%x"
+      height: 1000
+      width: 1600
+      zoom: 2
+      download: true
+      ray_tracing: true
+      view: front
+      rotate_x: 4
+      rotate_y: 0
+      rotate_z: -5
+      transparent_background: true
+
+  - type: pcbdraw
+    name: PCB Top View
+    dir: exports/renders
+    options:
+      output: "%f-top-view.%x"
+      format: png
+      dpi: 600
+      show_components: all
+
+  - type: pcbdraw
+    name: PCB Top View No Components
+    dir: exports/renders
+    options:
+      output: "%f-top-view-no-comps.%x"
+      format: png
+      dpi: 600
+
+  - type: pcbdraw
+    name: PCB Bottom View
+    dir: exports/renders
+    options:
+      output: "%f-bottom-view.%x"
+      format: png
+      bottom: true
+      dpi: 600
+      show_components: all
+
+  - type: pcbdraw
+    name: PCB Bottom View No Components
+    dir: exports/renders
+    options:
+      output: "%f-bottom-view-no-comps.%x"
+      format: png
+      bottom: true
+      dpi: 600

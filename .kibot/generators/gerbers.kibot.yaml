@@ -1,0 +1,72 @@
+kibot:
+  version: 1
+
+outputs:
+  - name: Gerbers
+    type: gerber
+    dir: exports/gerbers
+    options:
+      exclude_edge_layer: true
+      exclude_pads_from_silkscreen: true
+      plot_sheet_reference: false
+      plot_footprint_refs: true
+      plot_footprint_values: true
+      force_plot_invisible_refs_vals: false
+      tent_vias: true
+      use_protel_extensions: true
+      create_gerber_job_file: false
+      output: "%f.%x"
+      gerber_precision: 4.6
+      use_gerber_x2_attributes: false
+      use_gerber_net_attributes: false
+      disable_aperture_macros: true
+      line_width: 0.1
+      subtract_mask_from_silk: false
+      inner_extension_pattern: ".gl%N"
+    layers:
+      - copper
+      - F.SilkS
+      - B.SilkS
+      - F.Mask
+      - B.Mask
+      - F.Paste
+      - B.Paste
+      - Edge.Cuts
+
+  - name: Drill
+    type: excellon
+    dir: exports/gerbers
+    options:
+      metric_units: false
+      minimal_header: true
+      zeros_format: SUPPRESS_LEADING
+      left_digits: 2
+      right_digits: 4
+      pth_and_npth_single_file: false
+      pth_id: ""
+      npth_id: "-NPTH"
+      output: "%f%i.drl"
+
+  - type: gerb_drill
+    name: Gerber Drill
+    dir: exports/gerbers
+
+  - type: position
+    name: PnP file
+    dir: exports/gerbers
+
+  - name: Archive
+    type: compress
+    dir: exports
+    options:
+      format: ZIP
+      output: "%f-gerbers-%r.%x"
+      files:
+        - from_output: "Gerbers"
+          dest: /
+        - from_output: "Drill"
+          dest: /
+        - from_output: "Gerber Drill"
+          dest: /
+        - from_output: "PnP file"
+          dest: /

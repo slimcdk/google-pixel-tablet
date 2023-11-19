@@ -1,16 +1,19 @@
 # Google Pixel Tablet
 
 
-## Wall Mount
+## Wall Mount (Version 2)
 
-![](pictures/version1.png)
+![](pictures/version2.png)
 
 
 ### Parts
 7x M3x12mm countersunk. \
 7x M3 nuts (<3mm thick). \
 16x 12x5x3 cube magnets. \
-3x M4 countersunk self-drilling screw.
+2x M4 countersunk self tapping screw.
+
+
+https://www.digikey.dk/da/products/detail/mill-max-manufacturing-corp/0853-0-15-20-82-14-11-0/2403178
 
 
 
@@ -71,3 +74,6 @@ The connector pair in the middle carry data signals. The protocol is still undet
 
 ![](pictures/data-signals/20230729_030050.jpg)
 
+Protocol is USB (maybe 2.0?), but is non-standard as logic levels are 3.3V and supply is 12V. It is undetermined if the circuitry is 5V tolerant. A connected ESP32-S3 appear as a serial device. The base station shows as Amlogic Korlan device.
+
+![](pictures/data-signals/20230904_162334.jpg)

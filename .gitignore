@@ -122,3 +122,14 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/kicad,freecad,linux,windows,macos
+
+
+
+*.zip
+
+docs/src/*
+exports/*
+
+*.ogv
+*.log
+.env
