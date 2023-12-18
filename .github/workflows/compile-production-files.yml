@@ -49,7 +49,7 @@ jobs:
       #     git push
 
       - name: Archive project artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: electronics-${{ steps.gitstamp.outputs.datehash }}
           if-no-files-found: error
